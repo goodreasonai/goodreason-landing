@@ -1,0 +1,632 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Good Reason</title>
+
+<meta name="description" content="Good Reason is an American technology company that helps businesses and governments make better strategic decisions using AI reasoning.">
+
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@100..900&&family=Outfit:wght@300&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- For the GitHub stars button -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    :root {
+        --font-header: "Instrument Serif";
+        --font-body: "Inter"
+    }
+    html, body {
+        font-family: var(--font-body);
+        margin: 0px;
+        scroll-behavior: smooth;
+        color: white;
+    }
+    a {
+        all: unset;
+        font-family: var(--font-body);
+    }
+    .underline-animated {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        --transform-dir: 0% 50%;
+    }
+
+    .underline-animated::after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        transform: scaleX(0);
+        transform-origin: var(--transform-dir);
+        transition: transform 150ms ease-in-out;
+    }
+    .underline-animated:hover:after { transform: scaleX(1); }
+
+    .header-text {
+        font-family: var(--font-header);
+    }
+
+    @media only screen and (max-width: 800px) {
+        .mobile-dissappear {
+            display: none;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <style>
+        #premier-page {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background-color: #54796d;
+        }
+        .premier-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            z-index: 0;
+        }
+        .show-premier-video {
+            opacity: .25;
+            transition: opacity 1s ease-in;
+        }
+        .inner-premier {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .menu {
+            display: flex;
+            padding: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .premier-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 5%;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-top: 10px;
+        }
+        .main-text {
+            display: flex;
+            align-items: center;
+            font-size: 6rem;
+            flex: 1;
+        }
+        @media only screen and (max-width: 900px) {
+            .main-text {
+                font-size: 3rem;
+            }
+        }
+        .premier-secondary {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .premier-inquiries {
+            font-size: 2rem;
+            font-family: var(--font-header);
+        }
+        .premier-inquiries a {
+            text-decoration: underline;
+            cursor: pointer;
+            font-family: var(--font-header);
+        }
+        .premier-button-wrapper {
+            display: flex;
+            flex: 1;
+            gap: 50px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .premier-button {
+            border-radius: 10px;
+            background-color: #313f3b;
+            border: 1px solid #202020;
+            cursor: pointer;
+            padding: 10px 35px;
+            font-size: 1.25rem;
+        }
+        @media only screen and (max-width: 900px) {
+            .premier-button-wrapper {
+                gap: 10px;
+                padding-bottom: 15%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .premier-inquiries {
+                display: none;
+            }
+        }
+        .premier-link {
+            cursor: pointer;
+        }
+    </style>
+    <div id="premier-page">
+        <div class="inner-premier">
+            <div class="menu">
+                <div style="display:flex;align-items:center;flex:1">
+                    <style>
+                        .logo {
+                            height: 50px;
+                        }
+                        @media only screen and (max-width: 900px) {
+                            .logo {
+                                height: 35px;
+                            }
+                        }
+                    </style>
+                    <img src="images/GoodReason.png" class="logo" />
+                </div>
+                <a class="mobile-dissappear" href="https://twitter.com/usaiinc">
+                    <div class="premier-link underline-animated">Twitter</div>
+                </a>
+                <a class="mobile-dissappear" href="https://www.linkedin.com/company/us-artificial-intelligence-inc">
+                    <div class="premier-link underline-animated">LinkedIn</div>
+                </a>
+                <a href="careers.html">
+                    <div class="premier-link underline-animated">Careers</div>
+                </a>
+                <a href="https://blog.us.ai">
+                    <div class="premier-link underline-animated">Blog</div>
+                </a>
+            </div>
+            <div class="premier-content">
+                <div class="main-text header-text">
+                    Technology in Service of Strategic Thinking
+                </div>
+                <div class="premier-secondary">
+                    <div class="premier-inquiries">
+                        Inquiries to <a href="mailto:team@us.ai">team@us.ai</a>
+                    </div>
+                    <div class="premier-button-wrapper">
+                        <a href="#mission-page"><div class="premier-button">Mission</div></a>
+                        <a href="#platform-page"><div class="premier-button">Platform</div></a>
+                        <a href="#team-page"><div class="premier-button">Team</div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #mission-page {
+            position: relative;
+            width: 100vw;
+            background-color: #283934;
+        }
+        .inner-mission-page {
+            width: 100%;
+            padding: 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+        .mission-main-text {
+            font-size: 4rem;
+        }
+        .mission-sub-text {
+            font-size: 1.5rem;
+        }
+        @media only screen and (max-width: 900px) {
+            .mission-main-text {
+                font-size: 3rem;
+            }
+            .mission-sub-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <div id="mission-page">
+        <div class="inner-mission-page">
+            <div class="mission-main-text header-text">
+                We make strategic decisions better with AI reasoning.
+            </div>
+            <div class="mission-sub-text">
+                Intelligence and advisory powered by the world's most powerful AI models
+            </div>
+        </div>
+    </div>
+    <style>
+        #paragraph-page {
+            background-color: #d4d4d4;
+            color: black;
+        }
+        .inner-paragraph-page {
+            padding: 5% 10%;
+            column-count: 3;
+            column-gap: 20px;
+        }
+        .inner-paragraph-page blockquote {
+            font-size: 2rem;
+            font-family: var(--font-header);
+        }
+        .inner-paragraph-page p:first-of-type::first-letter {
+            font-size: 3em; /* Larger font size for the drop cap */
+            float: left;
+            line-height: 1;
+            margin-right: 15px;
+            font-weight: bold;
+            font-family: var(--font-header);
+        }
+        .inner-paragraph-page a {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .paragraph-page-header {
+            font-size: 3.5rem;
+            font-family: var(--font-header);
+        }
+        @media only screen and (max-width: 900px) {
+            .paragraph-page-header {
+                font-size: 3rem;
+            }
+            .inner-paragraph-page {
+                column-count: 1;
+            }
+        }
+    </style>
+    <div id="paragraph-page">
+        <div class="inner-paragraph-page">
+            <div class="paragraph-page-header">
+                What do <i>you</i> do?
+            </div>
+            <p>We can accomplish anything we set our minds on. But how do you decide <i>what</i> you want to do?</p>
+            <p>AI and other technologies are increasingly driving down costs, yet we often find ourselves actually doing <i>less</i>. Our time is increasingly spent on the planning stage.</p>
+            <p>Consider the Department of Defense: the pentagon has a nearly $1 trillion budget, yet it is still constrained by trade-offs: a base here, or there? A new jet, but what missions should it be designed for? How should the defense posture of this country look in 5 years? By the time the hordes of analysts have decided what to do, the work could've been done already</p>
+            <p>Another example is the process of building housing. The community must decide whether it wants the housing to be built; this process can take months of community outreach and meetings. The city must review the plans and be assured that any environmental impact is accounted for, which the builders must study. By the time the architects refine the plans, and the holes are ready to be dug, most of the work is already done – this was the work deciding whether or not to do it in the first place.</p>
+            <p>Consider congestion pricing in New York City. The political machinations and analysis took years: the budget meetings, the alternatives suggested. One impact assessment <a href="https://reason.com/2021/08/24/new-york-city-was-supposed-to-have-congestion-pricing-in-january-federally-mandated-environmental-review-pushed-the-start-date-to-2023/">took</a> 16 months to complete.</p>                
+            <blockquote>
+                "Our time is increasingly spent on the planning stage."
+            </blockquote>
+            <p>Many people wish for a world of machines that wait at our command. The last job for humanity, then, is deciding what those commands ought to be. <b>Our mission as a company is to make those decisions – those studies and analyses – as correct, persuasive, and efficient as possible.</b></p>
+        </div>
+    </div>
+    <style>
+        #platform-page {
+            background-color: #283934;
+        }
+        .inner-platform-page {
+            padding: 5% 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+        }
+        .platform-main-text {
+            font-size: 4rem;
+            font-family: var(--font-header);
+        }
+        .platform-body-container {
+            display: flex;
+            gap: 2rem;
+        }
+        .platform-abbey-box-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .platform-abbey-box {
+            background-color: #505050;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 400px;
+            font-size: 1.25rem;
+            border: 1px solid #787878;
+        }
+        .abbey-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: Outfit;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+        .second-row-abbey-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .platform-body-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            flex: 1;
+        }
+        .platform-body-item {
+            display: flex;
+        }
+        .platform-item-icon {
+            height: 30px;
+            filter: invert(100%);
+        }
+        .platform-item-icon-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .platform-item-text {
+            flex: 4;
+            font-size: 1.5rem;
+            margin-left: 3rem;
+            display: list-item;
+        }
+        .platform-ending {
+            font-size: 1.5rem;
+        }
+        @media only screen and (max-width: 900px) {
+            .platform-body-container {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+            }
+            .platform-main-text {
+                font-size: 3rem;
+            }
+            .inner-platform-page {
+                gap: 2.5rem;
+                padding: 10% 10%;
+            }
+        }
+    </style>
+    <div id="platform-page">
+        <div class="inner-platform-page">
+            <div class="platform-main-text">
+                More correct, more comprehensive, and faster intelligence
+            </div>
+            <div class="platform-body-container">
+                <div class="platform-body-stack">
+                    <div class="platform-body-item">
+                        <div class="platform-item-text">
+                            En masse data collection
+                        </div>
+                    </div>
+                    <div class="platform-body-item">
+                        <div class="platform-item-text">
+                            Autonomous hypothesis generation and evaluation
+                        </div>
+                    </div>
+                    <div class="platform-body-item">
+                        <div class="platform-item-text">
+                            Advanced labeling, summarization, and filtering of information
+                        </div>
+                    </div>
+                </div>
+                <div class="platform-abbey-box-container">
+                    <div class="platform-abbey-box">
+                        <div>
+                            Our internal platform is forked from Abbey, our open source project.
+                        </div>
+                        <div class="second-row-abbey-box">
+                            <a href="https://abbey.us.ai">
+                                <div class="abbey-logo-container">
+                                    Abbey
+                                    <img src="images/JustBooks.png" style="height:25px;" />
+                                </div>
+                            </a>
+                            <div style="font-size:1rem">
+                                1000s of users
+                            </div>
+                            <div>
+                                <a class="github-button" href="https://github.com/us-artificial-intelligence/abbey" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star us-artificial-intelligence/abbey on GitHub">Star</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="platform-ending">
+                Better technology enables entirely new modes of analysis.
+            </div>
+        </div>
+    </div>
+    <style>
+        #team-page {
+            position: relative;
+            width: 100vw;
+            background-color: #54796d;
+        }
+        .inner-team-page {
+            padding: 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+        .team-section {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            width: 100%;
+            align-items: center;
+        }
+        .team-section-label {
+            font-size: 2.5rem;
+        }
+        .team-people {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        .team-person {
+            display: flex;
+            gap: 100px;
+            align-items: flex-start;
+            width: 100%;
+        }
+        .team-img-container {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 100%;
+        }
+        .team-img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .team-person-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 80%;
+        }
+        .team-name {
+            font-size: 2rem;
+            padding-bottom: 10px;
+        }
+        .team-person-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 1rem;
+        }
+        @media only screen and (max-width: 900px) {
+            .team-name {
+                font-size: 1.5rem;
+            }
+            .team-person-items {
+                font-size: .8rem;
+            }
+            .team-person {
+                gap: 50px;
+            }
+        }
+    </style>
+    <div id="team-page">
+        <div class="inner-team-page">
+            <div class="team-section">
+                <div class="team-section-label header-text">
+                    Officers
+                </div>
+                <div class="team-people">
+                    <div class="team-person">
+                        <div class="team-img-container">
+                            <img src="images/Gordon.jpeg" class="team-img" />
+                        </div>
+                        <div class="team-person-stack">
+                            <div class="team-name">
+                                Gordon Kamer - CEO
+                            </div>
+                            <div class="team-person-items">
+                                <div>
+                                    Studied computer science and government at Harvard College
+                                </div>
+                                <div>
+                                    Published work on artificial intelligence
+                                </div>
+                                <div>
+                                    Former national security analyst
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #footer {
+            background-color: #505050;
+        }
+        .inner-footer {
+            padding: 5% 10%;
+            display: flex;
+            gap: 2rem;
+        }
+        .footer-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .footer-stack a {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        @media only screen and (max-width: 900px) {
+            .inner-footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <div id="footer">
+        <div class="inner-footer">
+            <div>
+                <img src="images/GR.png" class="logo" />
+            </div>
+            <div class="footer-stack">
+                <div>
+                    <a href="careers.html">Careers</a>
+                </div>
+                <div>
+                    Inquiries to team@us.ai
+                </div>
+                <div>
+                    <a href="https://us.ai/TermsOfUse.pdf">Terms of Use</a> and <a href="https://us.ai/WebsitePrivacyPolicy.pdf">Privacy Policy</a> 
+                </div>
+                <div>
+                    Copyright © U.S. Artificial Intelligence Inc. All rights reserved.
+                </div>
+                <div>
+                    Mountain View, CA
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.underline-animated').forEach(function(element) {
+            element.addEventListener('mouseout', function() {
+                this.style.setProperty('--transform-dir', '100% 50%');
+            });
+        });
+
+        document.querySelectorAll('.underline-animated').forEach(function(element) {
+            element.addEventListener('mouseover', function() {
+                this.style.setProperty('--transform-dir', '0% 50%');
+            });
+        });
+        
+        const video = document.querySelector('.premier-video');
+        video.load();  // without this, hard refreshes seem to delay loading?!?
+        video.addEventListener('canplay', () => {
+            video.classList.add('show-premier-video');
+        });
+    </script>
+</body>
+</html>
