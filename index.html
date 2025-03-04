@@ -76,34 +76,90 @@
         background-color: #dfcab8;
     }
 
-    @media only screen and (max-width: 800px) {
-        .mobile-dissappear {
-            display: none;
+    /* Blur reveal animation */
+    @keyframes blurReveal {
+        0% {
+            filter: blur(8px);
+            opacity: 0;
         }
+        50% {
+            filter: blur(4px);
+            opacity: 0.5;
+        }
+        100% {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+    .blur-reveal {
+        opacity: 0;
+        will-change: opacity, filter;
+    }
+    .blur-reveal.visible {
+        animation: blurReveal .5s ease-in-out forwards;
+    }
+    
+    /* Define fade-in animation */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    /* Define zoom-out animation */
+    @keyframes zoomOut {
+        from { transform: scale(1.1); }
+        to { transform: scale(1); }
+    }
+    
+    /* Card fade-in animation */
+    @keyframes cardFadeIn {
+        from { 
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn .5s ease-in forwards;
+        animation-delay: .5s; /* Start after zoom completes */
+    }
+    
+    /* Software card animations */
+    .fade-in-card {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .fade-in-card.visible {
+        animation: cardFadeIn 0.6s ease-out forwards;
+    }
+    
+    .card-delay-1.visible {
+        animation-delay: 0.2s;
+    }
+    
+    .card-delay-2.visible {
+        animation-delay: 0.4s;
+    }
+
+    /* Delay second text element */
+    .delay-short {
+        animation-delay: 0.3s;
+    }
+    /* Delay image reveal */
+    .delay-long {
+        animation-delay: 0.6s;
     }
 </style>
 
 </head>
 <body>
     <style>
-        /* Define fade-in animation */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Define zoom-out animation */
-        @keyframes zoomOut {
-            from { transform: scale(1.1); }
-            to { transform: scale(1); }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn .5s ease-in forwards;
-            animation-delay: .5s; /* Start after zoom completes */
-        }
-        
         #premier-page {
             position: relative;
             height: 100vh;
@@ -171,7 +227,7 @@
         }
         @media only screen and (max-width: 900px) {
             .main-text {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
         }
         .premier-secondary {
@@ -294,7 +350,7 @@
         }
         .main-text-image-container {
             display: flex;
-            gap: 20px;
+            gap: 50px;
             justify-content: space-between;
         }
         .main-text-container {
@@ -313,6 +369,30 @@
             height: 200px;
             border-radius: 20px;
         }
+        .check-table-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .check-row {
+            display: flex;
+            width: 100%;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 1px solid rgb(210, 210, 210);
+            padding: 20px;
+        }
+        .check-item {
+            flex: 1;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+        }
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            filter: invert(100);
+        }
         @media only screen and (max-width: 900px) {
             .mission-main-text {
                 font-size: 3rem;
@@ -320,27 +400,57 @@
             .mission-sub-text {
                 font-size: 1.5rem;
             }
+            .main-text-image-container {
+                flex-direction: column;
+            }
         }
     </style>
     <div id="mission-page">
         <div class="inner-mission-page">
             <div class="bullet-header">
                 <div class="bullet-header-point"></div>
-                Our Mission
+                <span class="blur-reveal">Our Mission</span>
             </div>
             <div class="main-text-image-container">
                 <div class="main-text-container">
-                    <div class="mission-main-text header-text">
+                    <div class="mission-main-text header-text blur-reveal">
                         We make policy and strategic decision-making better with AI reasoning.
                     </div>
-                    <div class="mission-sub-text">
+                    <div class="mission-sub-text blur-reveal delay-short">
                         Intelligence and advisory powered by the world's most powerful AI models
                     </div>
                 </div>
                 <img src="images/Capitol.png" class="mission-image" />
             </div>
-            <div>
-                
+            <div class="check-table-contianer blur-reveal delay-long">
+                <div class="check-row">
+                    <div class="check-item">
+                        <img src="images/check-mark.png" class="checkmark" />
+                        Policy Analysis
+                    </div>
+                    <div class="check-item">
+                        <img src="images/check-mark.png" class="checkmark" />
+                        Defense Research
+                    </div>
+                    <div class="check-item mobile-dissappear">
+                        <img src="images/check-mark.png" class="checkmark" />
+                        Studies
+                    </div>
+                </div>
+                <div class="check-row">
+                    <div class="check-item">
+                        <img src="images/check-mark.png" class="checkmark" />
+                        Geopolitical Risk
+                    </div>
+                    <div class="check-item">
+                        <img src="images/check-mark.png" class="checkmark" />
+                        Strategic Initiatives
+                    </div>
+                    <div class="check-item mobile-dissappear">
+                        <img src="images/check-mark.png" class="checkmark" />
+                        Consulting
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -407,73 +517,58 @@
             padding: 5% 10%;
             display: flex;
             flex-direction: column;
-            gap: 5rem;
+            gap: 4rem;
         }
         .platform-main-text {
-            font-size: 4rem;
+            font-size: 3rem;
             font-family: var(--font-header);
+            text-align: center;
+        }
+        .platform-desc {
+            font-size: 1.5rem;
+            text-align: center;
         }
         .platform-body-container {
             display: flex;
-            gap: 2rem;
+            gap: 5%;
+            flex-wrap: wrap;
         }
-        .platform-abbey-box-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        .platform-abbey-box {
-            background-color: #505050;
+        .software-card {
+            flex: 1;
+            background-color: #202020;
             border-radius: 20px;
-            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all .1s ease-in-out;
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
-            max-width: 400px;
-            font-size: 1.25rem;
-            border: 1px solid #787878;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            height: 500px;
         }
-        .abbey-logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: Outfit;
-            font-size: 1.25rem;
+        .software-card a {
             cursor: pointer;
         }
-        .second-row-abbey-box {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-content: space-between;
+        .software-card:hover {
+            background-color: #252525;
         }
-        .platform-body-stack {
+        .software-inner {
             display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
             gap: 2rem;
-            flex: 1;
+            padding: 20px;
         }
-        .platform-body-item {
-            display: flex;
+        .software-img {
+            width: 100%;
         }
-        .platform-item-icon {
-            height: 30px;
-            filter: invert(100%);
-        }
-        .platform-item-icon-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .platform-item-text {
-            flex: 4;
-            font-size: 1.5rem;
-            margin-left: 3rem;
-            display: list-item;
-        }
-        .platform-ending {
-            font-size: 1.5rem;
+        .software-text {
+            padding: 15px;
+            line-height: 1.5rem;
+            text-align: center;
+            color: #d4d4d4;
         }
         @media only screen and (max-width: 900px) {
             .platform-body-container {
@@ -492,51 +587,48 @@
     </style>
     <div id="platform-page">
         <div class="inner-platform-page">
-            <div class="platform-main-text">
-                More correct, more comprehensive, and faster intelligence
+            <div class="platform-main-text blur-reveal">
+                Software Utilities to Support Our Mission
+            </div>
+            <div class="platform-desc blur-reveal delay-short">
+                We build and release open source software as it becomes useful to our work.
             </div>
             <div class="platform-body-container">
-                <div class="platform-body-stack">
-                    <div class="platform-body-item">
-                        <div class="platform-item-text">
-                            En masse data collection
+                <div class="software-card fade-in-card">
+                    <div class="software-inner">
+                        <a href="https://abbey.us.ai/">
+                            <img src="images/AbbeyLongWhite.png" class="software-img" />
+                        </a>
+                        <div class="software-text">
+                            A highly configurable, private AI wrapper for documents, notebooks, and chats
                         </div>
-                    </div>
-                    <div class="platform-body-item">
-                        <div class="platform-item-text">
-                            Autonomous hypothesis generation and evaluation
-                        </div>
-                    </div>
-                    <div class="platform-body-item">
-                        <div class="platform-item-text">
-                            Advanced labeling, summarization, and filtering of information
-                        </div>
-                    </div>
-                </div>
-                <div class="platform-abbey-box-container">
-                    <div class="platform-abbey-box">
                         <div>
-                            Our internal platform is forked from Abbey, our open source project.
-                        </div>
-                        <div class="second-row-abbey-box">
-                            <a href="https://abbey.us.ai">
-                                <div class="abbey-logo-container">
-                                    Abbey
-                                    <img src="images/JustBooks.png" style="height:25px;" />
-                                </div>
-                            </a>
-                            <div style="font-size:1rem">
-                                1000s of users
-                            </div>
-                            <div>
-                                <a class="github-button" href="https://github.com/goodreasonai/abbey" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star goodreasonai/abbey on GitHub">Star</a>
-                            </div>
+                            <a class="github-button" href="https://github.com/goodreasonai/abbey" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star goodreasonai/abbey on GitHub">Star</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="platform-ending">
-                Better technology enables entirely new modes of analysis.
+                <div class="software-card fade-in-card card-delay-1">
+                    <div class="software-inner">
+                        <img src="images/NicheyWhite.png" class="software-img" />
+                        <div class="software-text">
+                            Search the web and extract entities into a private wiki.
+                        </div>
+                        <div>
+                            <a class="github-button" href="https://github.com/goodreasonai/nichey" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star goodreasonai/abbey on GitHub">Star</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="software-card fade-in-card card-delay-2">
+                    <div class="software-inner">
+                        <img src="images/ScapeServ.png" class="software-img" />
+                        <div class="software-text">
+                            A powerful, queued web scraping server that captures sceenshots of URLs
+                        </div>
+                        <div>
+                            <a class="github-button" href="https://github.com/goodreasonai/scrapeserv" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star goodreasonai/abbey on GitHub">Star</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -573,17 +665,10 @@
             align-items: flex-start;
             width: 100%;
         }
-        .team-img-container {
+        .team-img {
             width: 150px;
             height: 150px;
-            overflow: hidden;
-            position: relative;
-            border-radius: 100%;
-        }
-        .team-img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
+            border-radius: 50%;
         }
         .team-person-stack {
             display: flex;
@@ -611,6 +696,10 @@
             .team-person {
                 gap: 50px;
             }
+            .team-img {
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
     <div id="team-page">
@@ -621,9 +710,7 @@
                 </div>
                 <div class="team-people">
                     <div class="team-person">
-                        <div class="team-img-container">
-                            <img src="images/Gordon.jpeg" class="team-img" />
-                        </div>
+                        <img src="images/Gordon.jpeg" class="team-img" />
                         <div class="team-person-stack">
                             <div class="team-name">
                                 Gordon Kamer - CEO
@@ -722,7 +809,36 @@
             } else {
                 menu.classList.remove('menu-scrolled');
             }
+            
+            // Check for elements with blur-reveal to animate them when they come into view
+            checkElementsInView();
         });
+        
+        // Function to detect when elements are in viewport and animate them
+        function checkElementsInView() {
+            // Check all animatable elements that don't already have the visible class
+            const elements = document.querySelectorAll('.blur-reveal:not(.visible), .fade-in-card:not(.visible)');
+            console.log("HELLO")
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                
+                // If element is in viewport (with some buffer)
+                if (rect.top <= windowHeight * 0.85) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Run once on page load to check for elements already in view
+        document.addEventListener('DOMContentLoaded', checkElementsInView);
     </script>
+    <style>
+        @media only screen and (max-width: 800px) {
+            .mobile-dissappear {
+                display: none;
+            }
+        }
+    </style>
 </body>
 </html>
